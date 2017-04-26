@@ -700,8 +700,14 @@ td.gutter {
     #mc_embed_signup .button {width: 100%; margin:0; }
 }
 .optin-text {
-margin: 50px 0px 30px;
-font-size: 1.4em;
+margin: 25px 0px 30px;
+font-size: 1.2em;
 font-family:"Open Sans","Helvetica Neue",Arial,Helvetica,Verdana,sans-serif;
+border-top: 1px solid #ebebeb;
+padding-top: 12px;
+}
+
+.optin-text h3 {
+font-size: 1.4em;
 }
 
