@@ -11,7 +11,7 @@ So what happened?
 
 To get the last 3 months, I wrote a very simple method:
 
-```php
+```php?start_inline=1
 private function getLastMonths(int $monthCount): array
 {
     $months = [];
@@ -31,7 +31,7 @@ The problem was that today is March 30th. The '-1 month' tries to set the date t
 
 It was a very easy fix once I figured out what the problem was.
 
-```php
+```php?start_inline=1
 private function getLastMonths(int $monthCount): array
 {
     $firstOfTheMonth = new DateTimeImmutable('first day of this month');

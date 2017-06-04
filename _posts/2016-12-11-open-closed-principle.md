@@ -21,7 +21,6 @@ Let us assume that we have a logger that writes to the filesystem:
 
 
 ```php
-
 <?php declare(strict_types=1);
 
 interface Logger
@@ -32,7 +31,6 @@ interface Logger
 
 
 ```php
-
 <?php declare(strict_types=1);
 
 class FilesystemLogger implements Logger
@@ -61,7 +59,6 @@ class FilesystemLogger implements Logger
 Now let's try to add some functionality through extension. Let's say that we also want to receive an email when we log something in some cases. So we create a separate class for that.
 
 ```php
-
 <?php declare(strict_types=1);
 
 class EmailAndFilesystemLogger extends FilesystemLogger implements Logger
