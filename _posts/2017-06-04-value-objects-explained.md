@@ -12,7 +12,7 @@ When we do object oriented programming, we want to create proper abstractions. L
 
 If we use an integer, there is no way for us to enforce validate that the RGB color is always valid. We know that the red, green and blue values always have to be between 0 and 255. If we use a value object, we can enforce this in the constructor.
 
-```php
+{% highlight php startinline %}
 final class Color
 {
     private $red;
@@ -34,8 +34,7 @@ final class Color
         $this->blue = $blue;
     }
 }
-
-```
+{endhighlight}
 
 Let's say that we want to create a function that allows us to represent our color in the common HTML hex format (`#337ab7` for example). If we didn't have a value object, this is how the code could look like.
 
