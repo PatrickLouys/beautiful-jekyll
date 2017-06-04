@@ -23,7 +23,7 @@ final class Color
     {
         foreach ([$red, $green, $blue] as $color) {
             if ($color < 0 || $color > 255) {
-                thrown new InvalidArgumentException(
+                throw new InvalidArgumentException(
                     'Color values must be between 0 and 255'
                 );
             }
@@ -43,16 +43,13 @@ function convertRgbToHex(int $red, int $green, int $blue): string
 {
     foreach ([$red, $green, $blue] as $color) {
         if ($color < 0 || $color > 255) {
-            thrown new InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'Color values must be between 0 and 255'
             );
         }
     }
 
-    return '#'
-        . sprintf('%02x', $red)
-        . sprintf('%02x', $green)
-        . sprintf('%02x', $blue);
+    return sprintf('#%02x%02x%02x', $red, $green, $blue);
 }
 ```
 
@@ -65,10 +62,7 @@ We can improve our `convertRgbToHex()` function by using the color value object 
 ```php?start_inline=1
 function convertColorToHex(Color $color): string
 {
-    return '#'
-        . sprintf('%02x', $color->getRed())
-        . sprintf('%02x', $color->getGreen())
-        . sprintf('%02x', $color->getBlue());
+    return sprintf('#%02x%02x%02x', $color->getRed(), $color->getGreen(), $color->getBlue());
 }
 ```
 
@@ -87,10 +81,7 @@ final class Color
 
     public function toHexString(): string
     {
-        return '#'
-            . sprintf('%02x', $this->red)
-            . sprintf('%02x', $this->green)
-            . sprintf('%02x', $this->blue);
+        return sprintf('#%02x%02x%02x', $this->red, $this->green, $this->blue);
     }
 }
 ```
