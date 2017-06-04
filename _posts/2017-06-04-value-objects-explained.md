@@ -12,7 +12,7 @@ When we do object oriented programming, we want to create proper abstractions. L
 
 If we use an integer, there is no way for us to enforce validate that the RGB color is always valid. We know that the red, green and blue values always have to be between 0 and 255. If we use a value object, we can enforce this in the constructor.
 
-'''php?start_inline=1
+```php?start_inline=1
 final class Color
 {
     private $red;
@@ -34,11 +34,11 @@ final class Color
         $this->blue = $blue;
     }
 }
-'''
+```
 
 Let's say that we want to create a function that allows us to represent our color in the common HTML hex format (`#337ab7` for example). If we didn't have a value object, this is how the code could look like.
 
-'''php?start_inline=1
+```php?start_inline=1
 function convertRgbToHex(int $red, int $green, int $blue): string
 {
     foreach ([$red, $green, $blue] as $color) {
@@ -62,6 +62,7 @@ As you can see, every function that uses colors has to do it's own validation. T
 
 We can improve our `convertRgbToHex()` function by using the color value object instead.
 
+```php?start_inline=1
 function convertColorToHex(Color $color): string
 {
     return '#'
@@ -69,6 +70,7 @@ function convertColorToHex(Color $color): string
         . sprintf('%02x', $color->getGreen())
         . sprintf('%02x', $color->getBlue());
 }
+```
 
 This approach deduplicates the code and is a big improvement compared to the earlier example, but we can still improve it.
 
@@ -78,7 +80,7 @@ Using a lot of primitive values leads to procedural code because you are not bun
 
 We can use the [information expert principle](https://en.wikipedia.org/wiki/GRASP_(object-oriented_design)#Information_expert) to decide where a method belongs to. In our case, the color value object is the correct place because it contains all the information that is required.
 
-'''php?start_inline=1
+```php?start_inline=1
 final class Color
 {
     // constructor etc...
@@ -91,7 +93,6 @@ final class Color
             . sprintf('%02x', $this->blue);
     }
 }
-
 ```
 
 It can take a while to make the mental shift from procedural to OOP, even if you have used objects for years. But the end result is code that is much easier to maintain and it's always easy to find the appropriate methods - they are part of the object itself and not scattered around your codebase.
@@ -100,12 +101,12 @@ It can take a while to make the mental shift from procedural to OOP, even if you
 
 Primitive obsession is a design smell. I'm not saying that you should never use primitives, but you shouldn't use them by default for all your parameters. They can't represent a custom type properly. When you typehint for an `int` or `string`, there is no additional information communicated besides the scalar type.
 
-'''php?start_inline=1
+```php?start_inline=1
 public function drawPixel(int $x, int $y, int $red, int $green, int $blue);
 ```
 The code above is a good example of primitive obsession. It might look reasonable from this perspective, but let's see how this code is being used from the outside.
 
-'''php?start_inline=1
+```php?start_inline=1
 // if you write it like this, it is still readable
 $canvas->drawPixel($x, $y, $red, $green, $blue);
 
@@ -115,7 +116,7 @@ $canvas->drawPixel(50, 25, 31, 132, 255);
 ```
 We can improve that code by using value objects.
 
-```php
+```php?start_inline=1
 $canvas->drawPixel(new Coordinate($x, $y), new Color($red, $green, $blue));
 
 $canvas->drawPixel(new Coordinate(50, 25), new Color(31, 142, 255));
@@ -126,7 +127,7 @@ If you have been developing for a while, I'm sure that you have come across of a
 
 Of course you can go even further and add separate value objects for every single value.
 
-'''php?start_inline=1
+```php?start_inline=1
 $canvas->drawPixel(
     new Coordinate(
         new X(50),
@@ -151,7 +152,7 @@ A good rule of thumb is that you should never use primitives for the type declar
 
 Let's assume that we have two different pixels and they both share the same color.
 
-'''php?start_inline=1
+```php?start_inline=1
 $color = new Color(31, 142, 255);
 
 $canvas->drawPixel(new Coordinate(50, 25), $color);
@@ -159,14 +160,14 @@ $canvas->drawPixel(new Coordinate(100, 50), $color);
 ```
 But now we want to modify the second color before we draw the pixel.
 
-```php
+```php?start_inline=1
 public function removeRed(): void
 {
     $this->red = 0;
 }
 ```
 
-'''php?start_inline=1
+```php?start_inline=1
 $color = new Color(31, 142, 255);
 $canvas->drawPixel(new Coordinate(50, 25), $color);
 
@@ -179,7 +180,7 @@ Immutability makes it much easier to reason about code. Mutable value objects ar
 
 So how do you make a value object immutable? PHP doesn't have native support for immutable classes and properties yet, but you can choose to not manipulate any object state from it's methods. So we change our `removeRed()` method to the following.
 
-'''php?start_inline=1
+```php?start_inline=1
 public function removeRed(): Color
 {
     return new Color(0, $this->green, $this->blue);
@@ -188,7 +189,7 @@ public function removeRed(): Color
 
 To make it immutable, we don't modify the state and instead return a new object.
 
-'''php?start_inline=1
+```php?start_inline=1
 $color = new Color(31, 142, 255);
 $canvas->drawPixel(new Coordinate(50, 25), $color);
 
