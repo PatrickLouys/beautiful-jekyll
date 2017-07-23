@@ -5,66 +5,88 @@ layout: base
 {% include header.html type="post" %}
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-      <article role="main" class="blog-post">
-        {{ content }}
-      </article>
+            <article role="main" class="blog-post">
+                {{ content }}
+            </article>
 
-	<div class="optin-text">
-	<h3>Did you enjoy this post?</h3>
-	If you don't want to miss a blog post or receive updates about the PHP book that I'm writing, subscribe below.
-	</div>
+            <div class="optin-text">
+                <h3>Did you enjoy this post?</h3>
+                If you don't want to miss a blog post or if you want to receive
+                updates about
+                the <a href="/professional-php">book</a> that I'm writing,
+                subscribe below.
+            </div>
 
-	<!-- Begin MailChimp Signup Form -->
-	<div id="mc_embed_signup">
-	<form action="//artofphp.us11.list-manage.com/subscribe/post?u=735b43a41df267384ba839356&amp;id=a8ae06398f" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-	    <div id="mc_embed_signup_scroll">
-		<input type="text" value="" name="FNAME" class="email" class="required" id="mce-FNAME" placeholder="First name">
-		<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email address" required>
-	    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_735b43a41df267384ba839356_a8ae06398f" tabindex="-1" value=""></div>
-	    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-	    </div>
-	</form>
-	</div>
-	<!--End mc_embed_signup-->
+            <!-- Begin MailChimp Signup Form -->
+            <div id="mc_embed_signup">
+                <form action="//artofphp.us11.list-manage.com/subscribe/post?u=735b43a41df267384ba839356&amp;id=a8ae06398f"
+                      method="post" id="mc-embedded-subscribe-form"
+                      name="mc-embedded-subscribe-form" class="validate"
+                      target="_blank" novalidate>
+                    <div id="mc_embed_signup_scroll">
+                        <input type="text" value="" name="FNAME" class="email"
+                               class="required" id="mce-FNAME"
+                               placeholder="First name">
+                        <input type="email" value="" name="EMAIL" class="email"
+                               id="mce-EMAIL" placeholder="Email address"
+                               required>
+                        <div style="position: absolute; left: -5000px;"
+                             aria-hidden="true"><input type="text"
+                                                       name="b_735b43a41df267384ba839356_a8ae06398f"
+                                                       tabindex="-1" value="">
+                        </div>
+                        <div class="clear"><input type="submit"
+                                                  value="Subscribe"
+                                                  name="subscribe"
+                                                  id="mc-embedded-subscribe"
+                                                  class="button"></div>
+                    </div>
+                </form>
+            </div>
+            <!--End mc_embed_signup-->
 
-      {% if page.tags.size > 0 %}
-        <div class="blog-tags">
-          Tags:
-          {% if site.link-tags %}
-          {% for tag in page.tags %}
-            <a href="/tag/{{ tag }}">{{ tag }}</a>
-          {% endfor %}
-          {% else %}
-            {{ page.tags | join: ", " }}
-          {% endif %}
+            {% if page.tags.size > 0 %}
+            <div class="blog-tags">
+                Tags:
+                {% if site.link-tags %}
+                {% for tag in page.tags %}
+                <a href="/tag/{{ tag }}">{{ tag }}</a>
+                {% endfor %}
+                {% else %}
+                {{ page.tags | join: ", " }}
+                {% endif %}
+            </div>
+            {% endif %}
+
+            {% if page.social-share %}
+            {% include social-share.html %}
+            {% endif %}
+
+            <ul class="pager blog-pager">
+                {% if page.previous.url %}
+                <li class="previous">
+                    <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}"
+                       data-toggle="tooltip" data-placement="top"
+                       title="{{page.previous.title}}">&larr; Previous Post</a>
+                </li>
+                {% endif %}
+                {% if page.next.url %}
+                <li class="next">
+                    <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}"
+                       data-toggle="tooltip" data-placement="top"
+                       title="{{page.next.title}}">Next Post &rarr;</a>
+                </li>
+                {% endif %}
+            </ul>
+
+            {% if page.comments %}
+            <div class="disqus-comments">
+                {% include disqus.html %}
+            </div>
+            {% endif %}
         </div>
-      {% endif %}
-
-      {% if page.social-share %}
-        {% include social-share.html %}
-      {% endif %}
-
-      <ul class="pager blog-pager">
-        {% if page.previous.url %}
-        <li class="previous">
-          <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
-        </li>
-        {% endif %}
-        {% if page.next.url %}
-        <li class="next">
-          <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
-        </li>
-        {% endif %}
-      </ul>
-
-      {% if page.comments %}
-        <div class="disqus-comments">
-          {% include disqus.html %}
-        </div>
-      {% endif %}
     </div>
-  </div>
 </div>
