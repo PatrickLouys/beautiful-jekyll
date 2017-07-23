@@ -22,7 +22,11 @@ common-js:
 <body>
 
 <div role="main" class="container">
-    <h1 style="margin: 50px 0">{{ page.headline }}</h1>
+    <div class="row">
+        <div class="col-md-12" style="text-align: center">
+            <h1 style="margin: 50px 0">{{ page.headline }}</h1>
+        </div>
+    </div>
     <div class="row">
         <div class="col-sm-4 col-xs-8 col-sm-offset-0 col-xs-offset-2">
             <img src="/public/{{ page.cover }}" title="{{ page.title }}"
