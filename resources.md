@@ -9,6 +9,8 @@ This is a list of resources that I recommend to learn more about software develo
 
 <i class="fa fa-fw fa-book"></i> [Clean Code - Robert C. Martin](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship-ebook/dp/B001GSTOAM)
 
+<i class="fa fa-fw fa-book"></i> [Code Complete 2 - Steve McConnell](https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670)
+
 <i class="fa fa-fw fa-youtube-play"></i> [The Clean Code Talks - Google Tech Talks](https://www.youtube.com/watch?v=4F72VULWFvc&list=PL693EFD059797C21E&index=1)
 
 <i class="fa fa-fw fa-youtube-play"></i> [Dependency Injection - Programming With Anthony](http://blog.ircmaxell.com/2013/01/dependency-injection-programming-with.html)
