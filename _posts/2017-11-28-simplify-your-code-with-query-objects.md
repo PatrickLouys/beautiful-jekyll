@@ -3,7 +3,7 @@ layout: post
 title: Simplify Your Code With Query Objects
 ---
 
-Did you ever have problems with repositories that just kept on growing over the years, with no end in sight?
+Did you ever have problems with repository classes that just kept on growing over the years, with no end in sight?
 
 This is a problem that I have encountered in multiple projects and companies. Usually the repository starts out small, but then more and more methods are added over time.
 
