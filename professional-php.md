@@ -5,7 +5,7 @@ headline: Learn how to build maintainable and secure applications
 cover: professional-php.png
 ---
 
-In this book you will learn how to...
+The book will be released on the __5th of December__. You will learn how to...
 
 - write clean and maintainable object-oriented code
 - start a new project from scratch
