@@ -27,7 +27,7 @@ interface OrderRepository
 {
     public function find(OrderId $orderId): ?Order;
 
-    public function findAll(Filters $filters, ): Orders; >> TODO
+    public function findAll(Filters $filters, PaginationParameters $paginationParameters): Orders;
 
     public function countTotal(): int;
 
