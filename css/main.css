@@ -892,4 +892,19 @@ td.gutter {
     font-size: 1.2em;
 }
 
+.buy-btn {
+    font-weight: bold;
+    background-color: #3688c3;
+    border-color: #3688c3;
+    padding: 1em 2em;
+    font-size: 1em;
+}
+
+
+
+.sample-btn {
+
+    padding: 1em 2em;
+    font-size: 1em;
+}
 
