@@ -3,7 +3,7 @@ layout: landingpage
 title: Professional PHP
 headline: Learn how to build maintainable and secure applications
 cover: professional-php.png
-share-img: /public/professional-php.png
+share-img: http://patricklouys.com/public/professional-php.png
 ---
 
 In this book you will learn how to...
