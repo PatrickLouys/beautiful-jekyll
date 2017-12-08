@@ -898,13 +898,31 @@ td.gutter {
     border-color: #3688c3;
     padding: 1em 2em;
     font-size: 1em;
+    margin-top: 20px;
 }
 
 
 
 .sample-btn {
-
     padding: 1em 2em;
     font-size: 1em;
+    margin-top: 20px;
 }
 
+.review-text {
+    font-size: 0.9em;
+}
+
+.review-author {
+   font-weight: bold;
+    font-size: 0.9em;
+}
+
+.review-job {
+    font-size: 0.9em;
+}
+
+.review-img {
+    filter: grayscale(20%); 
+    margin-top: 30px;
+}
