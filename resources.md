@@ -11,6 +11,12 @@ This is a list of resources that I recommend to learn more about software develo
 
 <i class="fa fa-fw fa-book"></i> [Code Complete 2 - Steve McConnell](https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670)
 
+<i class="fa fa-fw fa-book"></i> [The Pragmatic Programmer - Andrew Hunt & David Thomas](https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X)
+
+<i class="fa fa-fw fa-book"></i> [Professional PHP - Patrick Louys](/professional-php/)
+
+<i class="fa fa-fw fa-book"></i> [Effective Java - Joshua Bloch](https://www.amazon.com/Effective-Java-2nd-Joshua-Bloch/dp/0321356683)
+
 <i class="fa fa-fw fa-youtube-play"></i> [The Clean Code Talks - Google Tech Talks](https://www.youtube.com/watch?v=4F72VULWFvc&list=PL693EFD059797C21E&index=1)
 
 <i class="fa fa-fw fa-youtube-play"></i> [Dependency Injection - Programming With Anthony](http://blog.ircmaxell.com/2013/01/dependency-injection-programming-with.html)
