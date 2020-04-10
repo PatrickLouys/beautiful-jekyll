@@ -1,0 +1,166 @@
+.controls {
+    display: inline-block;
+    background: #919191;
+    position: absolute;
+    width: 230px;
+    padding: 20px;
+    top: 0;
+}
+
+.controls-720 {
+    left: 1280px;
+    height: 750px;
+}
+
+.controls-1080 {
+    left: 1920px;
+    height: 1110px;
+}
+
+.controls button {
+    border: none;
+    background-color: #e7e7e7;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.controls button.active {
+    background-color: #555555;
+    color: white;
+}
+
+#current-color {
+    background-color: red;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 230px;
+    height: 50px;
+    padding: 0;
+    line-height: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 9999999px;
+}
+
+.current-color-container {
+    height: 50px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+button.color {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin-right: 6px;
+    margin-bottom: 10px;
+}
+
+button.color:last-child {
+    margin-right: 0;
+}
+
+button.color#color-1 {
+    background-color: red;
+    color: white;
+}
+
+button.color#color-2 {
+    background-color: blue;
+    color: white;
+}
+
+button.color#color-3 {
+    background-color: green;
+    color: white;
+}
+
+button.color#color-4 {
+    background-color: yellow;
+    color: black;
+}
+
+button.color#color-5 {
+    background-color: rebeccapurple;
+    color: white;
+}
+
+button.color#color-6 {
+    background-color: saddlebrown;
+    color: white;
+}
+
+button.color#color-7 {
+    background-color: white;
+    color: black;
+}
+
+button.color#color-8 {
+    background-color: black;
+    color: white;
+}
+
+button.color.active#color-4 {
+    border: 3px solid grey;
+}
+
+.title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.shortcuts {
+    bottom: 0;
+    position: absolute;
+    padding-bottom: 20px;
+}
+
+#drawing-controls .action {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    margin-right: 6px;
+    margin-bottom: 10px;
+}
+
+#drawing-controls .actions {
+    margin-bottom: 20px;
+}
+
+#line-width {
+    vertical-align: middle;
+}
+
+.line-width-container {
+    font-size: 16px;
+    margin-top: 10px;
+}

@@ -1,0 +1,87 @@
+.player {
+    display: inline-block;
+}
+
+#video {
+    background: #313131;
+}
+
+.player-controls {
+    background: #737373;
+}
+
+.player-controls button {
+    border: none;
+    color: black;
+    background: transparent;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 32px;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+}
+
+.player-controls .volume-controls {
+    display: inline-block;
+}
+
+.progress {
+    position: relative;
+    display: block;
+    height: 10px;
+    background: rgba(166, 166, 166, 0.5);
+    cursor: pointer;
+    margin-top: -4px;
+}
+
+#progress-bar {
+    background-color: red;
+    width: 0;
+    height: 10px;
+}
+
+.load {
+    display: inline-block;
+    float: right;
+}
+
+.size-buttons {
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+}
+
+.player-controls .size-buttons button {
+    width: 80px;
+    font-size: 20px;
+}
+
+.player-controls .size-buttons button.active {
+    font-weight: bold;
+}
+
+#video-overlay {
+    position: absolute;
+    display: table;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#video-overlay .icon {
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 100px;
+}
+
+.video-overlay-720 {
+    width: 1280px;
+    height: 720px;
+}
+
+.video-overlay-1080 {
+    width: 1920px;
+    height: 1080px;
+}

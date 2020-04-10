@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <link rel="stylesheet" type="text/css" href="player.css">
+    <link rel="stylesheet" type="text/css" href="drawing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div>
+    <div class="player">
+        <div id="video-overlay" class="video-overlay-1080" onclick="loadVideo(this)">
+            <div class="icon">
+                <i class="fas fa-upload"></i>
+            </div>
+        </div>
+        <video width="1920" height="1080" id="video">
+            <source type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <canvas id="canvas" width="1920" height="1080"></canvas>
+        <div class="progress" id="progress">
+            <div class="progress-filled" id="progress-bar"></div>
+        </div>
+        <div class="player-controls">
+            <button onclick="togglePlay()" id="play-button"><i class="fas fa-play"></i></button>
+            <div class="volume-controls">
+                <button onclick="toggleMute(this)" id="mute-button"><i class="fas fa-volume-up"></i></button>
+                <input type="range"
+                       onchange="changeVolume(this)"
+                       onmousemove="changeVolume(this)"
+                       id="volume"
+                       min="0" max="1" step="0.05" value="1">
+            </div>
+            <div class="load">
+                <button onclick="loadVideo(this)"><i class="fas fa-upload"></i></button>
+            </div>
+            <div class="size-buttons">
+                <button onclick="resizeTo720p(this)" class="resize">720p</button>
+                <button onclick="resizeTo1080p(this)" class="resize active">1080p</button>
+            </div>
+        </div>
+    </div>
+    <div class="controls controls-1080" id="drawing-controls">
+        <div class="actions">
+            <button onclick="undo(this)" class="action"><i class="fas fa-undo"></i></button>
+            <button onclick="clearCanvas(this)" class="action"><i class="fas fa-backspace"></i></button>
+        </div>
+        <div class="current-color-container">
+            <div id="current-color" style="height: 5px;"></div>
+        </div>
+        <div>
+            <button onclick="changeColor(this)" class="color active" id="color-1">1</button>
+            <button onclick="changeColor(this)" class="color" id="color-2">2</button>
+            <button onclick="changeColor(this)" class="color" id="color-3">3</button>
+            <button onclick="changeColor(this)" class="color" id="color-4">4</button>
+        </div>
+        <div>
+            <button onclick="changeColor(this)" class="color" id="color-5">5</button>
+            <button onclick="changeColor(this)" class="color" id="color-6">6</button>
+            <button onclick="changeColor(this)" class="color" id="color-7">7</button>
+            <button onclick="changeColor(this)" class="color" id="color-8">8</button>
+        </div>
+        <div class="line-width-container">
+            <i class="fas fa-arrows-alt-v"></i>
+            <input type="range"
+                   onchange="changeLineWidth(this)"
+                   onmousemove="changeLineWidth(this)"
+                   id="line-width"
+                   min="1" max="50" step="1" value="5">
+        </div>
+        <div class=shortcuts>
+            <div class="title">Drawing Shortcuts</div>
+            <b>Click:</b> Draw<br>
+            <b>Ctrl+Click:</b> Draw circle<br>
+            <b>Ctrl+Shift+Click:</b> Draw large circle<br>
+            <b>Ctrl+Z:</b> Undo<br>
+            <b>Backspace:</b> Clear everything<br>
+            <b>1-8:</b> Change color<br>
+            <br>
+            <div class="title">Player Shortcuts</div>
+            <b>Space:</b> Play/pause<br>
+            <b>➡:</b> 0.1 seconds forward<br>
+            <b>⬅:</b> 0.1 seconds backward<br>
+            <b>⬆:</b> 1 second forward<br>
+            <b>⬇:</b> 1 second backward<br>
+            <b>Shift+➡:</b> 10 seconds forward<br>
+            <b>Shift+⬅:</b> 10 seconds backward<br>
+            <b>Shift+⬆:</b> 1 minute forward<br>
+            <b>Shift+⬇:</b> 1 minute backward<br>
+        </div>
+    </div>
+</div>
+
+<script>
+    let videoPlayer = document.getElementById('video');
+    let videoOverlay = document.getElementById('video-overlay');
+    let drawingControls = document.getElementById('drawing-controls');
+    let currentColor = document.getElementById('current-color');
+    let progress = document.getElementById('progress');
+    let canvas = document.getElementById('canvas');
+    let context = canvas.getContext("2d");
+    context.translate(0.5, 0.5);
+    let drawings = [];
+    let currentDrawings = [];
+    let color = '#FF0000';
+    let lineWidth = 5;
+    let lastVolume = 1;
+</script>
+<script src="player.js"></script>
+<script src="drawing.js"></script>
+<script src="base.js"></script>
+<script defer src="font-awesome.js"></script>
+
+</body>
+</html>
